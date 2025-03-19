@@ -65,7 +65,7 @@
                 i {
                     font-size: 15px;
                     margin-right: 5px;
-                    color: #594f4f;
+                    color: grey;
 
                     &:hover {
                         color: #49bce2;
@@ -76,24 +76,36 @@
 
             .language-vi {
                 cursor: pointer;
+                opacity: 0.2;
 
-                &:hover {
-                    color: #49bce2;
-                    transition: all 0.3s ease-in-out;
+                &.active {
+                    opacity: 1;
+
+                    span {
+                        color: orange;
+                    }
                 }
 
-                &:active {
-                    color: orange;
+                &:hover {
+                    opacity: 0.8;
                 }
             }
 
             .language-en {
                 margin: 0 10px;
                 cursor: pointer;
+                opacity: 0.2;
+
+                &.active {
+                    opacity: 1;
+
+                    span {
+                        color: blue;
+                    }
+                }
 
                 &:hover {
-                    color: #49bce2;
-                    transition: all 0.3s ease-in-out;
+                    opacity: 0.8;
                 }
             }
         }
