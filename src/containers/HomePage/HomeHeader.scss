@@ -1,7 +1,7 @@
 .home-header-container {
     height: 60px;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 40px;
 
     .home-header-content {
         width: 100%;
@@ -9,16 +9,21 @@
         display: flex;
 
         .left-content {
-            width: 25%;
+            width: 20%;
             display: flex;
             align-items: center;
-            border: 1px solid blue;
 
             .header-logo {
-                background: url('../../assets/images/logo.svg') no-repeat center center;
                 height: 100%;
                 width: 100%;
                 cursor: pointer;
+                transform: scale(0.5, 0.5);
+                margin-left: -45px;
+
+                &:hover {
+                    transform: scale(0.6, 0.6);
+                    transition: all 0.4s ease-in-out;
+                }
             }
 
             i {
@@ -29,13 +34,16 @@
         }
 
         .center-content {
-            width: 50%;
+            width: 55%;
             display: flex;
             justify-content: space-between;
-            border: 1px solid green;
+            align-items: center;
 
             .child-content {
+                margin: auto;
+
                 .subs-title {
+                    font-weight: 400;
                     font-size: 12px;
                 }
             }
@@ -44,15 +52,56 @@
         .right-content {
             width: 25%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
-            border: 1px solid yellow;
+
+            .support {
+                padding-right: 50px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+
+                i {
+                    font-size: 15px;
+                    margin-right: 5px;
+                    color: #594f4f;
+
+                    &:hover {
+                        color: #49bce2;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+
+            .language-vi {
+                cursor: pointer;
+
+                &:hover {
+                    color: #49bce2;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &:active {
+                    color: orange;
+                }
+            }
+
+            .language-en {
+                margin: 0 10px;
+                cursor: pointer;
+
+                &:hover {
+                    color: #49bce2;
+                    transition: all 0.3s ease-in-out;
+                }
+            }
         }
     }
 }
 
 .home-header-banner {
-    background: url(../../assets/images/bookingcare-cover-4.1.jpg);
+    background-image: url(../../assets/images/bookingcare-cover-4.1.jpg);
     height: 485px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -60,10 +109,12 @@
     display: flex;
     flex-direction: column;
 
+
     .content-up {
-        border: 1px solid red;
+        background-image: linear-gradient(rgba(126, 126, 126, 0.25),
+                rgba(225, 225, 225, 0.1));
         padding-top: 15px;
-        height: 50%;
+        height: 65%;
 
         .title1 {
             font-size: 30px;
@@ -107,8 +158,12 @@
     }
 
     .content-down {
-        border: 1px solid blue;
-        height: 50%;
+        height: 35%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1),
+                rgba(225, 225, 225, 0.9));
 
         .options {
             text-align: center;
@@ -119,7 +174,6 @@
 
             .options-child {
                 width: 125px;
-                border: 1px solid red;
 
 
                 .icon-child {
@@ -151,9 +205,5 @@
 
         }
     }
-
-
-
-
 
 }
