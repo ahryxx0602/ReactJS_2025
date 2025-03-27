@@ -7,11 +7,11 @@ import { LANGUAGES } from '../../utils/constant';
 import { changeLanguageApp } from '../../store/actions';
 class HomeHeader extends Component {
 
-    changeLanguage = (language) => {
+    handleChangeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language);
     }
     render() {
-        let { language } = this.props.language;
+        const { language } = this.props;
         console.log('check language: ', language);
         return (
             <React.Fragment>
@@ -44,11 +44,13 @@ class HomeHeader extends Component {
                                 <i className='fas fa-question-circle'></i>
                                 <FormattedMessage id="home-header.support" />
                             </div>
-                            <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}>
-                                <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VI</span>
-                            </div>
-                            <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}>
-                                <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span>
+                            <div className='languages' >
+                                <span className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}
+                                    onClick={() => this.handleChangeLanguage(LANGUAGES.VI)}>
+                                    VI</span>
+                                <span className={language === LANGUAGES.EN ? "language-en active" : "language-en"}
+                                    onClick={() => this.handleChangeLanguage(LANGUAGES.EN)}>
+                                    EN</span>
                             </div>
                         </div>
                     </div>
