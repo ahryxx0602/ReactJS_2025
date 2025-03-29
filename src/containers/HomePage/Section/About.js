@@ -19,10 +19,10 @@ class About extends Component {
                         <iframe width="100%" height="400px"
                             src="https://www.youtube.com/embed/QiLfmPkSwcE"
                             title="The Ancient Capital of Hue - edit"
-                            frameborder="0"
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen>
                         </iframe>
                     </div>
                     <div className='content-right'>
