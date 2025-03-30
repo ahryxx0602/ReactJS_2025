@@ -24,16 +24,30 @@
     "menu": {
         "admin": {
             "manage-user": "Manage User",
-            "manager-doctor": "Manage Doctor",
-            "manager-admin": "Manage Admin",
+            "manage-doctor": "Manage Doctor",
+            "manage-admin": "Manage Admin",
             "crud": "CRUD user",
             "crud-redux": "CRUD Redux",
             "clinic": "Clinic",
-            "manage-Clinic": "Manage Clinic",
+            "manage-clinic": "Manage Clinic",
             "specialty": "Specialty",
             "manage-specialty": "Manage Specialty",
             "handbook": "Handbook",
             "manage-handbook": "Manage Handbook"
         }
+    },
+    "manage-user": {
+        "add": "Add new user",
+        "email": "Email",
+        "password": "Password",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "phoneNumber": "Phone number",
+        "address": "Address",
+        "gender": "Gender",
+        "position": "Position",
+        "role": "role",
+        "save": "Save",
+        "image": "Avatar"
     }
 }

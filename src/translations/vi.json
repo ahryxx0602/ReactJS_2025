@@ -24,16 +24,30 @@
     "menu": {
         "admin": {
             "manage-user": "Người dùng",
-            "manager-doctor": "Quản lý bác sĩ",
-            "manager-admin": "Quản lý Admin",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý Admin",
             "crud": "CRUD user",
             "crud-redux": "CRUD Redux",
             "clinic": "Phòng khám",
-            "manage-Clinic": "Quản lý Phòng khám",
+            "manage-clinic": "Quản lý Phòng khám",
             "specialty": "Chuyên khoa",
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
             "manage-handbook": "Quản lý cẩm nang"
         }
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "firstName": "Họ",
+        "lastName": "Tên",
+        "phoneNumber": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "position": "Chức danh",
+        "role": "Vai trò",
+        "save": "Lưu",
+        "image": "Ảnh đại diện"
     }
 }
