@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService } from '../../services/userService';
+import { getAllCodeService, createNewUserService } from '../../services/userService';
 import { reject } from 'lodash';
 
 // export const fetchGenderStart = () => ({
@@ -13,14 +13,14 @@ export const fetchGenderStart = () => {
                 type: actionTypes.FETCH_GENDER_START
             });
             let res = await getAllCodeService("GENDER");
-            if (res && res.errCode === 0 && res.data) {
+            if (res && res.errCode === 0) {
                 dispatch(fetchGenderSuccess(res.data));
             } else {
                 dispatch(fetchGenderFailed("Invalid response data"));
             }
         } catch (e) {
             dispatch(fetchGenderFailed(e.message || "Unknown error occurred"));
-            console.log("fetch Gender Start: ", e);
+            console.error("Error in fetchGenderStart: ", e);
         }
     }
 
@@ -43,14 +43,14 @@ export const fetchPositionStart = () => {
                 type: actionTypes.FETCH_POSITION_START
             });
             let res = await getAllCodeService("POSITION");
-            if (res && res.errCode === 0 && res.data) {
+            if (res && res.errCode === 0) {
                 dispatch(fetchPositionSuccess(res.data));
             } else {
                 dispatch(fetchPositionFailed("Invalid response data"));
             }
         } catch (e) {
             dispatch(fetchPositionFailed(e.message || "Unknown error occurred"));
-            console.log("fetch Position Start: ", e);
+            console.error("Error in fetchPositionStart: ", e);
         }
     }
 
@@ -73,14 +73,14 @@ export const fetchRoleStart = () => {
                 type: actionTypes.FETCH_ROLE_START
             });
             let res = await getAllCodeService("ROLE");
-            if (res && res.errCode === 0 && res.data) {
+            if (res && res.errCode === 0) {
                 dispatch(fetchRoleSuccess(res.data));
             } else {
                 dispatch(fetchRoleFailed("Invalid response data"));
             }
         } catch (e) {
             dispatch(fetchRoleFailed(e.message || "Unknown error occurred"));
-            console.log("fetch Role Start: ", e);
+            console.error("Error in fetchRoleStart: ", e);
         }
     }
 
@@ -95,4 +95,28 @@ export const fetchRoleFailed = (error) => ({
     error
 })
 
+export const createNewUser = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createNewUserService(data);
+            console.log("CHeckkk create user: ", res)
+            if (res && res.errCode === 0 && res.data) {
+                dispatch(saveUserSuccess());
+            } else {
+                dispatch(saveUserFailed("Invalid response data"));
+            }
+        } catch (e) {
+            dispatch(saveUserFailed(e.message || "Unknown error occurred"));
+            console.log("fetch Role Start: ", e);
+        }
+    }
+}
+
+export const saveUserSuccess = () => ({
+    type: actionTypes.CREATE_USER_SUCCESS,
+})
+
+export const saveUserFailed = () => ({
+    type: actionTypes.CREATE_USER_FAILED,
+})
 //Start doing end
