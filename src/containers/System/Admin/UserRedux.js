@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { getAllCodeService } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils/constant"
 import * as actions from "../../../store/actions"
 import "./UserRedux.scss"
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
-import { create } from 'lodash';
-
+import TableManageUser from "./TableManageUser";
 
 class UserRedux extends Component {
     constructor(props) {
@@ -38,6 +36,7 @@ class UserRedux extends Component {
         this.props.getGenderStart();
         this.props.getPositionStart();
         this.props.getRoleStart();
+        // this.props.fetchAllUserStart();
         // try {
         //     let res = await getAllCodeService('gender');
         //     if (res && res.errCode === 0) {
@@ -71,6 +70,20 @@ class UserRedux extends Component {
             this.setState({
                 roleArr: arrRole,
                 role: arrRole.length > 0 ? arrRole[0].key : ''
+            });
+        }
+        if (prevProps.listUsers !== this.props.listUsers) {
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                phoneNumber: '',
+                address: '',
+                gender: '',
+                position: '',
+                role: '',
+                avatar: '',
             });
         }
     }
@@ -148,8 +161,6 @@ class UserRedux extends Component {
         let { email, password, firstName, lastName, phoneNumber,
             address, gender, position, role, avatar
         } = this.state
-
-        console.log("Check Redux props: ", this.props.genderRedux)
         return (
             <div className='user-redux-container'>
                 <div className='title'>Manage User Redux Ahryxx</div>
@@ -158,33 +169,33 @@ class UserRedux extends Component {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12 my-3'><FormattedMessage id="manage-user.add" /> </div>
-                            <div className='col-12'>
+                            <div className='col-12 my-3'>
                                 {isLoadingGender && <div>Loading Gender...</div>}
                                 {isLoadingPosition && <div>Loading Positions...</div>}
                                 {isLoadingRole && <div>Loading Roles...</div>}
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.email" />: </label>
                                 <input className='form-control' type='email'
                                     value={email}
                                     onChange={(event) => { this.onChangeInput(event, 'email') }}
                                 />
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.password" />: </label>
                                 <input className='form-control' type='password'
                                     value={password}
                                     onChange={(event) => { this.onChangeInput(event, 'password') }}
                                 />
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.firstName" />: </label>
                                 <input className='form-control' type='text'
                                     value={firstName}
                                     onChange={(event) => { this.onChangeInput(event, 'firstName') }}
                                 />
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.lastName" />: </label>
                                 <input className='form-control' type='text'
                                     value={lastName}
@@ -192,7 +203,7 @@ class UserRedux extends Component {
                                 />
                             </div>
 
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.phoneNumber" />: </label>
                                 <input className='form-control' type='text'
                                     value={phoneNumber}
@@ -200,7 +211,7 @@ class UserRedux extends Component {
                                 />
                             </div>
 
-                            <div className='col-9'>
+                            <div className='col-9 my-3'>
                                 <label><FormattedMessage id="manage-user.address" />: </label>
                                 <input className='form-control' type='text'
                                     value={address}
@@ -208,13 +219,13 @@ class UserRedux extends Component {
                                 />
                             </div>
 
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.gender" />: </label>
+                                {isLoadingGender && <div>Loading Gender...</div>}
                                 <select className="form-control"
                                     value={this.state.gender}
                                     onChange={(event) => { this.onChangeInput(event, 'gender') }}
                                 >
-                                    {isLoadingGender && <div>Loading Gender...</div>}
                                     {genders &&
                                         genders.length > 0 &&
                                         genders.map((item, index) => {
@@ -226,7 +237,7 @@ class UserRedux extends Component {
                                         })}
                                 </select>
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.position" />: </label>
                                 <select className="form-control"
                                     value={this.state.position}
@@ -244,7 +255,7 @@ class UserRedux extends Component {
                                         })}
                                 </select>
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.role" />: </label>
                                 <select className="form-control"
                                     value={this.state.role}
@@ -262,7 +273,7 @@ class UserRedux extends Component {
                                         })}
                                 </select>
                             </div>
-                            <div className='col-3'>
+                            <div className='col-3 my-3'>
                                 <label><FormattedMessage id="manage-user.image" />: </label>
                                 <div className='preview-img-container'>
                                     <input id='preview-img' type='file' hidden
@@ -277,11 +288,12 @@ class UserRedux extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='col-12 mt-3 my-3'>
                                 <button className='btn btn-primary' onClick={() => this.handleSaveUser()}>
                                     <FormattedMessage id="manage-user.save" />
                                 </button>
                             </div>
+                            <div className='col-12 mb-5'><TableManageUser /></div>
                         </div>
                     </div>
                 </div>
@@ -304,7 +316,8 @@ const mapStateToProps = state => {
         genderRedux: state.admin.genders,
         isLoadingGender: state.admin.isLoadingGender,
         positionRedux: state.admin.positions,
-        roleRedux: state.admin.roles
+        roleRedux: state.admin.roles,
+        listUsers: state.admin.users
     };
 };
 
@@ -314,6 +327,7 @@ const mapDispatchToProps = dispatch => {
         getPositionStart: () => dispatch(actions.fetchPositionStart()),
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
         createNewUser: (data) => dispatch(actions.createNewUser(data)),
+        fetchUserRedux: () => dispatch(actions.fetchAllUserStart()),
         // processLogout: () => dispatch(actions.processLogout()),
         // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
     };

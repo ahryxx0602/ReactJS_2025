@@ -7,7 +7,8 @@ const initialState = {
     isLoadingGender: false,
     isLoadingPosition: false,
     isLoadingRole: false,
-    error: null
+    error: null,
+    users: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -76,7 +77,17 @@ const adminReducer = (state = initialState, action) => {
                 roles: [],
                 error: action.error || "Failed to fetch roles"
             }
+        case actionTypes.FETCH_ALL_USERS_SUCCESS:
+            return {
+                ...state,
+                users: action.user || []
+            }
 
+        case actionTypes.FETCH_ALL_USERS_FAILED:
+            return {
+                ...state,
+                users: []
+            }
         default:
             return state;
     }
