@@ -10,95 +10,102 @@ const initialState = {
     error: null,
     users: [],
     topDoctors: [],
+    allDoctors: [],
 }
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FETCH_GENDER_START:
+            let copyState = { ...state };
+            copyState.isLoadingGender = true;
             return {
-                ...state,
-                isLoadingGender: true,
-                error: null
+                copyState,
             }
 
         case actionTypes.FETCH_GENDER_SUCCESS:
+            state.genders = action.data;
+            state.isLoadingGender = false;
             return {
-                ...state,
-                genders: action.data || [],
-                isLoadingGender: false
+                ...state
             }
 
         case actionTypes.FETCH_GENDER_FAILED:
+            state.isLoadingGender = false;
+            state.genders = [];
             return {
                 ...state,
-                isLoadingGender: false,
-                genders: [],
-                error: action.error || "Failed to fetch genders"
             }
 
         case actionTypes.FETCH_POSITION_START:
+            let copyStatePosition = { ...state };
+            copyState.isLoadingGender = true;
             return {
-                ...state,
-                isLoadingPosition: true,
-                error: null
+                copyStatePosition,
             };
         case actionTypes.FETCH_POSITION_SUCCESS:
+            state.positions = action.data;
             return {
                 ...state,
-                positions: action.data || [],
-                isLoadingPosition: false
             }
 
         case actionTypes.FETCH_POSITION_FAILED:
+            state.isLoadingPosition = false;
+            state.positions = [];
             return {
                 ...state,
-                isLoadingPosition: false,
-                positions: [],
-                error: action.error || "Failed to fetch positions"
             }
 
         case actionTypes.FETCH_ROLE_START:
+            let copyStateRole = { ...state };
+            copyStateRole.isLoadingRole = true;
             return {
-                ...state,
-                isLoadingRole: true,
-                error: null
+                copyStateRole,
             };
 
         case actionTypes.FETCH_ROLE_SUCCESS:
+            state.roles = action.data;
             return {
                 ...state,
-                roles: action.data || [],
-                isLoadingRole: false
             }
 
         case actionTypes.FETCH_ROLE_FAILED:
+            state.roles = [];
             return {
                 ...state,
-                isLoadingRole: false,
-                roles: [],
-                error: action.error || "Failed to fetch roles"
             }
         case actionTypes.FETCH_ALL_USERS_SUCCESS:
+            state.users = action.users;
             return {
                 ...state,
-                users: action.user || []
             }
 
         case actionTypes.FETCH_ALL_USERS_FAILED:
+            state.users = [];
             return {
                 ...state,
-                users: []
             }
 
         case actionTypes.FETCH_TOP_DOCTORS_SUCCESS:
+            state.topDoctors = action.dataDoctors;
             return {
                 ...state,
-                topDoctors: action.dataDoctors
             }
         case actionTypes.FETCH_TOP_DOCTORS_FAILED:
+            state.topDoctors = [];
             return {
                 ...state,
-                topDoctors: []
+            }
+
+        case actionTypes.FETCH_ALL_DOCTORS_SUCCESS:
+            state.allDoctors = action.dataDr;
+            return {
+                ...state,
+            }
+
+        case actionTypes.FETCH_ALL_DOCTORS_FAILED:
+            state.allDoctors = [];
+            return {
+                ...state,
             }
 
         default:

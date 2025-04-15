@@ -2,6 +2,7 @@ import actionTypes from './actionTypes';
 import {
     getAllCodeService, createNewUserService, getAllUsers,
     deleteUserService, editUserService, getTopDoctorHomeService,
+    getAllDoctors, saveDetailDoctorService,
 
 } from '../../services/userService';
 import { toast } from 'react-toastify';
@@ -234,9 +235,59 @@ export const fetchTopDoctor = () => {
             }
         } catch (e) {
             dispatch({
-                type: actionTypes.FETCH_TOP_DOCTOR_FAILED,
+                type: actionTypes.FETCH_TOP_DOCTORS_FAILED,
             });
             console.log("Fetch top doctor failed: ", e);
+        }
+    }
+}
+
+export const fetchAllDoctors = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllDoctors();
+            if (res && res.errCode === 0) {
+                toast.success("Fetch all doctor Succeed!");
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
+                    dataDr: res.data
+                });
+            } else {
+                toast.error("Failed to fetch all doctors!");
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_FAILED,
+                });
+            }
+        } catch (e) {
+            dispatch({
+                type: actionTypes.FETCH_ALL_DOCTORS_FAILED,
+            });
+            console.log("Fetch all doctor failed: ", e);
+        }
+    }
+}
+
+export const saveDetailDoctor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveDetailDoctorService(data);
+            if (res && res.errCode === 0) {
+                toast.success("Save Infor Detail Succeed!");
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTORS_SUCCESS,
+                    allDr: res.data
+                });
+            } else {
+                toast.error("Failed to save detail doctors!");
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTORS_FAILED,
+                });
+            }
+        } catch (e) {
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_DOCTORS_FAILED,
+            });
+            console.log("Save detail doctor failed: ", e);
         }
     }
 }
