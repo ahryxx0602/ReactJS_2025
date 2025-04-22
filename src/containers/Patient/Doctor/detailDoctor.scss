@@ -1,0 +1,106 @@
+.doctor-detail-container {
+  height: auto;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+  .intro-doctor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .content-left {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: 2px solid #ddd;
+    }
+    .content-right {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .up {
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .down {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #555;
+      }
+    }
+  }
+  .detail-info-doctor {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+
+    h2,
+    h3,
+    h4 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      color: #34495e;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul,
+    ol {
+      margin-left: 25px;
+      padding-left: 25px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .schedule-doctor {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eef5ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #2c3e50;
+  }
+
+  .comment-doctor {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #333;
+  }
+}

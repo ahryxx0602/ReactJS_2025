@@ -1,51 +1,57 @@
-import { Input } from 'reactstrap';
-import axios from '../axios';
-
+import { Input } from "reactstrap";
+import axios from "../axios";
 
 const handleLoginApi = (userEmail, userPassword) => {
-    return axios.post('/api/login', { email: userEmail, password: userPassword });
-}
+  return axios.post("/api/login", { email: userEmail, password: userPassword });
+};
 
 const getAllUsers = async (inputId) => {
-    return axios.get(`/api/get-all-users?id=${inputId}`);
-}
+  return axios.get(`/api/get-all-users?id=${inputId}`);
+};
 
 const createNewUserService = (data) => {
-    return axios.post('/api/create-new-user', data); // send data to the server
-}
+  return axios.post("/api/create-new-user", data); // send data to the server
+};
 
 const deleteUserService = (userId) => {
-    return axios.delete('/api/delete-user', {
-        data: {
-            id: userId
-        }
-    });
-}
+  return axios.delete("/api/delete-user", {
+    data: {
+      id: userId,
+    },
+  });
+};
 
 const editUserService = (inputData) => {
-    return axios.put('/api/edit-user', inputData);
-}
+  return axios.put("/api/edit-user", inputData);
+};
 
 const getAllCodeService = (inputType) => {
-    return axios.get(`/api/allcode?type=${inputType}`)
-}
+  return axios.get(`/api/allcode?type=${inputType}`);
+};
 
 const getTopDoctorHomeService = (limit) => {
-    return axios.get(`/api/top-doctor-home?limit=${limit}`)
-}
+  return axios.get(`/api/top-doctor-home?limit=${limit}`);
+};
 
 const getAllDoctors = () => {
-    return axios.get(`/api/get-all-doctors`)
-}
+  return axios.get(`/api/get-all-doctors`);
+};
 
 const saveDetailDoctorService = (data) => {
-    return axios.post(`/api/save-info-doctor`, data)
-}
+  return axios.post(`/api/save-info-doctors`, data);
+};
+const getDetailInfoDoctor = (InputId) => {
+  return axios.get(`/api/get-detail-doctor-by-id?id=${InputId}`);
+};
 export {
-    handleLoginApi, getAllUsers,
-    createNewUserService, deleteUserService,
-    editUserService, getAllCodeService,
-    getTopDoctorHomeService, getAllDoctors,
-    saveDetailDoctorService
-
-}
+  handleLoginApi,
+  getAllUsers,
+  createNewUserService,
+  deleteUserService,
+  editUserService,
+  getAllCodeService,
+  getTopDoctorHomeService,
+  getAllDoctors,
+  saveDetailDoctorService,
+  getDetailInfoDoctor,
+};

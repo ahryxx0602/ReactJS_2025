@@ -42,6 +42,7 @@
 .slick-disabled {
     display: none !important;
 }
+
 //reset click slider css
 
 .section-share {
@@ -138,6 +139,7 @@
 
     .section-customize {
         padding: 5px;
+        cursor: pointer;
 
         .customize-border {
             border: 1px solid lightgrey;
