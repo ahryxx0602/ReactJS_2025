@@ -100,7 +100,6 @@ class ManageDoctor extends Component {
         hasOldData: false,
       });
     }
-    console.log("Check res", res);
   };
 
   handleOnChangeDesc = (event) => {

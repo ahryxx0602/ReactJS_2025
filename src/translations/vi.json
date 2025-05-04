@@ -59,5 +59,12 @@
     "more-info": "Xem thêm",
     "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
     "outstanding-clinic": "Phòng khám nổi bật tuần qua"
+  },
+  "manage-schedule": {
+    "title": "Quản lý lịch khám",
+    "select-doctor": "Chọn bác sĩ",
+    "select-date": "Chọn ngày khám",
+    "select-time": "Chọn khung giờ",
+    "save-schedule": "Lưu lịch khám"
   }
 }

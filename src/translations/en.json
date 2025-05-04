@@ -59,5 +59,12 @@
     "more-info": "See more",
     "outstanding-doctor": "Featured Doctor of the Week",
     "outstanding-clinic": "Outstanding clinic of the week"
+  },
+  "manage-schedule": {
+    "title": "Manage Schedule",
+    "select-doctor": "Select doctor",
+    "select-date": "Select date",
+    "select-time": "Select time",
+    "save-schedule": "Save schedule"
   }
 }
