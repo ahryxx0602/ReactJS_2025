@@ -50,6 +50,9 @@
     font-size: 15px;
     line-height: 1.8;
     color: #333;
+    padding: 10px 100px;
+    border-left: 1px solid #696969;
+    border-bottom: 1px solid #696969;
 
     h2,
     h3,
@@ -92,6 +95,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     color: #2c3e50;
+    border-left: 1px solid #696969;
+    border-bottom: 1px solid #696969;
   }
 
   .comment-doctor {
@@ -102,5 +107,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     color: #333;
+    border-left: 1px solid #696969;
+    border-bottom: 1px solid #696969;
   }
 }
