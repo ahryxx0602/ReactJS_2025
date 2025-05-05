@@ -12,6 +12,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     .button {
@@ -22,5 +23,10 @@
   }
   .btn-save-schedule {
     margin-top: 20px;
+
+    &.active {
+      background-color: #4caf50;
+      color: white;
+    }
   }
 }

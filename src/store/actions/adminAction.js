@@ -245,7 +245,6 @@ export const fetchAllDoctors = () => {
     try {
       let res = await getAllDoctors();
       if (res && res.errCode === 0) {
-        toast.success("Fetch all doctor Succeed!");
         dispatch({
           type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
           dataDr: res.data,
@@ -296,7 +295,6 @@ export const fetchAllScheduleTime = () => {
     try {
       let res = await getAllCodeService("TIME");
       if (res && res.errCode === 0) {
-        toast.success("Fetch all doctor Succeed!");
         dispatch({
           type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
           DataTime: res.data,
