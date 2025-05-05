@@ -29,8 +29,8 @@ class UserRedux extends Component {
       role: "",
       avatar: "",
 
-      action: "",
-      userEditId: "",
+      // action: "",
+      // userEditId: "",
     };
   }
 
@@ -38,18 +38,6 @@ class UserRedux extends Component {
     this.props.getGenderStart();
     this.props.getPositionStart();
     this.props.getRoleStart();
-    // this.props.fetchAllUserStart();
-    // try {
-    //     let res = await getAllCodeService('gender');
-    //     if (res && res.errCode === 0) {
-    //         this.setState({
-    //             genderArr: res.data
-    //         })
-    //     }
-    //     console.log("check: ", res)
-    // } catch (e) {
-    //     console.log(e);
-    // }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -338,7 +326,7 @@ class UserRedux extends Component {
               </div>
               <div className="col-3 my-3">
                 <label>
-                  <FormattedMessage id="manage-user.gender" />:{" "}
+                  <FormattedMessage id="manage-user.gender" />:
                 </label>
                 {isLoadingGender && <div>Loading Gender...</div>}
                 <select
@@ -363,7 +351,7 @@ class UserRedux extends Component {
               </div>
               <div className="col-3 my-3">
                 <label>
-                  <FormattedMessage id="manage-user.position" />:{" "}
+                  <FormattedMessage id="manage-user.position" />:
                 </label>
                 <select
                   className="form-control"
@@ -372,7 +360,6 @@ class UserRedux extends Component {
                     this.onChangeInput(event, "position");
                   }}
                 >
-                  {isLoadingPosition && <div>Loading Positions...</div>}
                   {positions &&
                     positions.length > 0 &&
                     positions.map((item, index) => {
@@ -413,7 +400,7 @@ class UserRedux extends Component {
               </div>
               <div className="col-3 my-3">
                 <label>
-                  <FormattedMessage id="manage-user.image" />:{" "}
+                  <FormattedMessage id="manage-user.image" />:
                 </label>
                 <div className="preview-img-container">
                   <input

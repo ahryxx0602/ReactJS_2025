@@ -37,12 +37,6 @@ const adminReducer = (state = initialState, action) => {
         ...state,
       };
 
-    case actionTypes.FETCH_POSITION_START:
-      let copyStatePosition = { ...state };
-      copyState.isLoadingGender = true;
-      return {
-        copyStatePosition,
-      };
     case actionTypes.FETCH_POSITION_SUCCESS:
       state.positions = action.data;
       return {
@@ -50,17 +44,9 @@ const adminReducer = (state = initialState, action) => {
       };
 
     case actionTypes.FETCH_POSITION_FAILED:
-      state.isLoadingPosition = false;
       state.positions = [];
       return {
         ...state,
-      };
-
-    case actionTypes.FETCH_ROLE_START:
-      let copyStateRole = { ...state };
-      copyStateRole.isLoadingRole = true;
-      return {
-        copyStateRole,
       };
 
     case actionTypes.FETCH_ROLE_SUCCESS:

@@ -55,6 +55,7 @@ export const fetchPositionStart = () => {
       if (res && res.errCode === 0) {
         dispatch(fetchPositionSuccess(res.data));
       } else {
+        toast.error("Failed to fetch positions!");
         dispatch(fetchPositionFailed());
       }
     } catch (e) {
@@ -149,7 +150,7 @@ export const fetchAllUserStart = () => {
 
 export const fetchAllUserSuccess = (data) => ({
   type: actionTypes.FETCH_ALL_USERS_SUCCESS,
-  user: data,
+  users: data,
 });
 
 export const fetchAllUserFailed = (error) => ({
