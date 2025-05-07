@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import HomeHeader from "../../HomePage/HomeHeader";
 import "./detailDoctor.scss";
 import { getDetailInfoDoctor } from "../../../services/userService";
+import DoctorSchedule from "./DoctorSchedule";
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -62,9 +63,19 @@ class DetailDoctor extends Component {
             </div>
           </div>
           <div className="schedule-doctor">
-            <h1>
+            <h3>
               <i className="fas fa-calendar-alt"></i> Thông tin lịch khám bệnh
-            </h1>
+            </h3>
+            <div className="content-doctor-schedule">
+              <div className="content-left">
+                <DoctorSchedule
+                  doctorIdFromParent={
+                    DetailDoctor && DetailDoctor.id ? DetailDoctor.id : -1
+                  }
+                />
+              </div>
+              <div className="content-right"></div>
+            </div>
           </div>
           <div className="detail-info-doctor">
             {DetailDoctor &&

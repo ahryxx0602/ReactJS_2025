@@ -64,7 +64,7 @@ class ManageSchedule extends Component {
     return result;
   };
 
-  handleChangeSelect = async (selectedOption) => {
+  handleOnChangeSelect = async (selectedOption) => {
     this.setState({ selectedDoctor: selectedOption });
   };
 
@@ -105,6 +105,7 @@ class ManageSchedule extends Component {
     if (rangeTime && rangeTime.length > 0) {
       let selectedTime = rangeTime.filter((item) => item.isSelected === true);
       if (selectedTime && selectedTime.length > 0) {
+        toast.success("Save schedule succeed!");
         selectedTime.map((schedule, index) => {
           let object = {};
           object.doctorId = selectedDoctor.value;
@@ -142,7 +143,7 @@ class ManageSchedule extends Component {
               </label>
               <Select
                 value={this.state.selectedDoctor}
-                onChange={this.handleChangeSelect}
+                onChange={this.handleOnChangeSelect}
                 options={this.state.listDoctors}
               />
             </div>

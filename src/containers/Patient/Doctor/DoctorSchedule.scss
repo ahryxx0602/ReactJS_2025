@@ -1,0 +1,85 @@
+.doctor-schedule-container {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  height: 100%;
+  .all-schedule {
+    select {
+      border-bottom: 1px solid #ccc;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      outline: none;
+      cursor: pointer;
+      padding: 5px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      background-color: #eef5ff;
+      option {
+        cursor: pointer;
+        padding: 5px 0;
+        font-size: 16px;
+      }
+    }
+  }
+  .all-available-time {
+  }
+  .text-calendar {
+    margin: 10px 0;
+    color: 333;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    span {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      font-style: bold;
+      text-transform: uppercase;
+    }
+  }
+  .time-content {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    .no-schedule {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        text-align: center;
+      }
+      i {
+        font-size: 20px;
+        color: red;
+        margin-right: 5px;
+      }
+    }
+    button {
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      border: none;
+      outline: none;
+      min-width: 120px;
+      border-radius: 3px;
+      font-weight: 600;
+      color: #1f2937;
+      background-color: #facc15;
+
+      &:hover {
+        background-color: #fcd34d;
+        color: #1f2937;
+      }
+      &.active {
+        background-color: #1d4ed8;
+        color: #1f2937;
+      }
+    }
+  }
+}
