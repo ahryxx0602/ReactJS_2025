@@ -51,8 +51,6 @@
     line-height: 1.8;
     color: #333;
     padding: 10px 100px;
-    border-left: 1px solid #696969;
-    border-bottom: 1px solid #696969;
 
     h2,
     h3,
@@ -91,14 +89,15 @@
     margin-top: 20px;
     padding: 20px;
     height: auto;
+    min-height: 200px;
     background-color: #eef5ff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     color: #2c3e50;
-    border-left: 1px solid #696969;
-    border-bottom: 1px solid #696969;
     .content-doctor-schedule {
+      display: flex;
+      flex-direction: row;
       .content-left {
         width: 50%;
       }
@@ -116,7 +115,5 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     color: #333;
-    border-left: 1px solid #696969;
-    border-bottom: 1px solid #696969;
   }
 }

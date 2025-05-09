@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import _ from "lodash";
 import { saveBulkScheduleDoctor } from "../../../services/userService";
 
+
 class ManageSchedule extends Component {
   constructor(props) {
     super(props);
@@ -105,7 +106,6 @@ class ManageSchedule extends Component {
     if (rangeTime && rangeTime.length > 0) {
       let selectedTime = rangeTime.filter((item) => item.isSelected === true);
       if (selectedTime && selectedTime.length > 0) {
-        toast.success("Save schedule succeed!");
         selectedTime.map((schedule, index) => {
           let object = {};
           object.doctorId = selectedDoctor.value;
@@ -124,12 +124,18 @@ class ManageSchedule extends Component {
       doctorId: selectedDoctor.value,
       formattedDate: formattedDate,
     });
-    console.log("check res", res);
+    if (res && res.errCode === 0) {
+      toast.success("Save schedule succeed!");
+    } else {
+      toast.error("Error save schedule!");
+      console.log("Error save schedule >>>>>>", res);
+    }
   };
 
   render() {
     let { rangeTime } = this.state;
     let { language } = this.props;
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     return (
       <div className="manage-schedule-container">
         <div className="m-s-title">
@@ -155,7 +161,7 @@ class ManageSchedule extends Component {
                 onChange={this.handleOnChangeDatePicker}
                 className="form-control"
                 value={this.state.currentDate}
-                minDate={new Date()}
+                minDate={yesterday}
               />
             </div>
             <label>

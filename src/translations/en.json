@@ -66,5 +66,22 @@
     "select-date": "Select date",
     "select-time": "Select time",
     "save-schedule": "Save schedule"
+  },
+  "patient": {
+    "detail-doctor": {
+      "schedule": "Schedule",
+      "no-schedule": "Doctor does not have an appointment, please choose another day!",
+      "choose": "Choose ",
+      "free": " and book (Free)"
+    }
+  },
+  "admin": {
+    "manage-doctor": {
+      "title": "Create Doctor Information",
+      "select-doctor": "Select doctor",
+      "intro": "Introduction",
+      "add": "Add",
+      "save": "Save"
+    }
   }
 }
