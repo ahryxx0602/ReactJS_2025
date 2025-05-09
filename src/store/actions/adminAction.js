@@ -334,8 +334,8 @@ export const getRequiredDoctorInfo = () => {
       ) {
         let data = {
           resPrice: resPrice.data,
-          resPayment: resPayment,
-          resProvince: resProvince,
+          resPayment: resPayment.data,
+          resProvince: resProvince.data,
         };
         dispatch(fetchRequiredDoctorInfoSuccess(data));
       } else {
