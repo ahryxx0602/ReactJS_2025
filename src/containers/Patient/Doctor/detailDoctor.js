@@ -5,6 +5,7 @@ import HomeHeader from "../../HomePage/HomeHeader";
 import "./detailDoctor.scss";
 import { getDetailInfoDoctor } from "../../../services/userService";
 import DoctorSchedule from "./DoctorSchedule";
+import DoctorExtraInfo from "./DoctorExtraInfo";
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -77,17 +78,9 @@ class DetailDoctor extends Component {
                 />
               </div>
               <div className="content-right">
-                <span className="title">Giá khám bệnh</span>
-                <div className="note">
-                  <span className="title">Ghi chú</span>
-                  {DetailDoctor &&
-                    DetailDoctor.Doctor_Infor &&
-                    DetailDoctor.Doctor_Infor.note && (
-                      <span className="value">
-                        {DetailDoctor.Doctor_Infor.note}
-                      </span>
-                    )}
-                </div>
+                <DoctorExtraInfo
+                  doctorIdFromParent={this.state.currentDoctorId}
+                />
               </div>
             </div>
           </div>
