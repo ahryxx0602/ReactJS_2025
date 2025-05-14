@@ -41,12 +41,7 @@ class ModalUser extends Component {
 
     handleOnChangeInput = (event, id) => {
         //BAD CODE
-        // this.state[id] = event.target.value;
-        // this.setState({
-        //     ...this.state
-        // }, () => {
-        //     console.log('Check bad state ', this.state)
-        // })
+
 
         //GOOD CODE
         let copyState = { ...this.state };

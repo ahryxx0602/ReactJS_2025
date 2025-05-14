@@ -33,7 +33,6 @@ class ModalEditUser extends Component {
                 address: user.address,
             })
         }
-        console.log('check props from parent: ', this.props.currentUser)
     }
 
     toggle = () => {
@@ -42,12 +41,6 @@ class ModalEditUser extends Component {
 
     handleOnChangeInput = (event, id) => {
         //BAD CODE
-        // this.state[id] = event.target.value;
-        // this.setState({
-        //     ...this.state
-        // }, () => {
-        //     console.log('Check bad state ', this.state)
-        // })
 
         //GOOD CODE
         let copyState = { ...this.state };

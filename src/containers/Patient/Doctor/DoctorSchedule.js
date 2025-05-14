@@ -86,15 +86,12 @@ class DoctorSchedule extends Component {
           allAvailableTime: res.dataSchedule ? res.dataSchedule : [],
         });
       }
-      console.log("Doctor ID from parent:", this.props.doctorIdFromParent);
-      console.log("check res schedule by date", res);
     }
   };
 
   render() {
     let { allDays, allAvailableTime } = this.state;
     let { language } = this.props;
-    console.log("check all available time", allAvailableTime);
     return (
       <div className="doctor-schedule-container">
         <div className="all-schedule">
