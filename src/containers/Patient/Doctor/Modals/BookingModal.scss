@@ -1,0 +1,81 @@
+.booking-modal-container{
+    .modal-content {
+        border-radius: 14px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        border: none;
+        overflow: hidden;
+    }
+    .booking-modal-content{
+        min-width: 500px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 14px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        height: auto;
+        .booking-modal-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+                .right{
+                    font-size: 22px;
+                color: #888;
+                cursor: pointer;
+                transition: color 0.2s;
+                &:hover {
+                    color: #e74c3c;
+                }
+                i {
+                    pointer-events: none;
+                }
+            }
+            .left{
+                font-size: 18px;
+                font-weight: 700;
+                color: #222;
+            }
+        }
+        .booking-modal-body{
+            padding: 24px;
+            background: #fff;
+            min-height: 120px;
+            height: auto;
+           
+        }
+        .booking-modal-footer{
+            border-top: 1px solid #eee;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            background: #f8f9fa;
+            
+            button{
+                outline: none;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            &.btn-booking-confirm {
+                background: #007bff;
+                color: #fff;
+                &:hover {
+                    background: #0056b3;
+                }
+            }
+            &.btn-booking-cancel {
+                background: #ffc107;
+                color: #222;
+                &:hover {
+                    background: #e0a800;
+                }
+            }
+            }
+        }
+    }
+}
