@@ -97,7 +97,6 @@ class DoctorSchedule extends Component {
       isOpenModalBooking: true,
       dataScheduleTimeModal: time
     })
-    console.log("Checkk: ", time)
   }
   closeBookingClose = ()=>{
     this.setState({
@@ -153,7 +152,7 @@ class DoctorSchedule extends Component {
               <div className="book-free">
                 <span>
                   <FormattedMessage id="patient.detail-doctor.choose" />
-                  <i className="far fa-hand-point-up"></i>{" "}
+                  <i className="far fa-hand-point-up"></i>
                   <FormattedMessage id="patient.detail-doctor.free" />
                 </span>
                 <i className="fas fa-check"></i>
