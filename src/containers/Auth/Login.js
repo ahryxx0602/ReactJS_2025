@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-
+import logo from "../../assets/images/logo-black.svg";
 import * as actions from "../../store/actions";
 
 import "./Login.scss";
@@ -81,26 +81,32 @@ class Login extends Component {
     //JSX
     return (
       <div className="login-background">
+        <div className="logo">
+        <img
+                className="img-logo"
+                src={logo}
+              />
+        </div>
         <div className="login-container">
           <div className="login-content">
             <div className="login-content-row">
-              <div className="col-12 text-login">Login</div>
+              <div className="col-12 text-login">LOGIN</div>
               <div className="col-12 form-group login-input">
-                <label>Username:</label>
+                <label>USERNAME:</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control input-text"
                   placeholder="Enter your username"
                   value={this.state.username}
                   onChange={(event) => this.handleOnChangeUsername(event)}
                 />
               </div>
               <div className="col-12 form-group login-input">
-                <label>Password:</label>
+                <label>PASSWORD:</label>
                 <div className="custom-input-password">
                   <input
                     type={this.state.isShowPassword ? "text" : "password"}
-                    className="form-control"
+                    className="form-control input-text"
                     placeholder="Enter your Password"
                     value={this.state.password}
                     onChange={(event) => this.handleOnChangePassword(event)}
