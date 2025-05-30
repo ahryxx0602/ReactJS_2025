@@ -92,6 +92,10 @@
       "genders": "Giới tính: ",
       "confirm": "Xác nhận",
       "cancel": "Hủy"
+    },
+    "verify-email": {
+      "success": "Xác nhận lịch hẹn thành công! Vui lòng kiểm tra email để hoàn tất.",
+      "fail": "Xác nhận lịch hẹn thất bại hoặc lịch hẹn đã được xác nhận!"
     }
   },
   "admin": {

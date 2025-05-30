@@ -1,0 +1,43 @@
+.verify-email-container {
+    min-height: 600px; // Đảm bảo container có chiều cao đủ
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .verify-content-left {
+        text-align: center; // Căn giữa nội dung bên trong
+
+        .info-booking {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px; // Khoảng cách dưới thông báo
+
+            i { // Style cho icon
+                margin-right: 8px;
+                font-size: 24px;
+            }
+
+            &.success {
+                color: green;
+            }
+            &.fail {
+                color: red;
+            }
+        }
+
+        .btn-go-home {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+}

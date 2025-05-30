@@ -92,6 +92,10 @@
       "genders": "Gender: ",
       "confirm": "Confirm",
       "cancel": "Cancel"
+    },
+    "verify-email": {
+      "success": "Booking a new Appointment success! Please check your email to verify.",
+      "fail": "Booking a new Appointment fail or the appointment has been activated!"
     }
   },
   "admin": {
