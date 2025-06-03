@@ -58,7 +58,9 @@
   "homepage": {
     "more-info": "Xem thêm",
     "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-    "outstanding-clinic": "Phòng khám nổi bật tuần qua"
+    "outstanding-clinic": "Phòng khám nổi bật tuần qua",
+    "specialty-popular": "Chuyên khoa phổ biến"
+
   },
   "manage-schedule": {
     "title": "Quản lý lịch khám",

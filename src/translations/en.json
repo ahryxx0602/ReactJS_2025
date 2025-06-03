@@ -58,7 +58,8 @@
   "homepage": {
     "more-info": "See more",
     "outstanding-doctor": "Featured Doctor of the Week",
-    "outstanding-clinic": "Outstanding clinic of the week"
+    "outstanding-clinic": "Outstanding clinic of the week",
+    "specialty-popular": "Popular Specialty"
   },
   "manage-schedule": {
     "title": "Manage Schedule",
