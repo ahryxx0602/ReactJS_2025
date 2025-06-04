@@ -110,10 +110,14 @@
       "choose-price": "Choose Price",
       "choose-payment": "Choose Method Payment",
       "choose-province": "Choose Province",
+      "choose-specialty" : "Choose Specialty",
+      "choose-clinic" : "Choose Clinic",
 
       "price": "PricePrice",
       "payment": "Method Payment",
       "province": "Province",
+      "specialty": "Specialty",
+      "clinic": "Clinic",
 
       "clinic-name": "Clinic's Name",
       "clinic-address": "Clinic's Address",

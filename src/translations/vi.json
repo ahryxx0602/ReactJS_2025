@@ -109,12 +109,16 @@
       "save": "Lưu thông tin",
 
       "choose-price": "Chọn giá",
-      "choose-payment": "Chọn phương thức thanh toán",
-      "choose-province": "Chọn tỉnh thành",
+      "choose-payment" : "Chọn phương thức thanh toán",
+      "choose-province" : "Chọn tỉnh thành",
+      "choose-specialty" : "Chọn chuyên khoa",
+      "choose-clinic" : "Chọn phòng khám",
 
       "price": "Giá khám bệnh",
       "payment": "Phương thức thanh toán",
       "province": "Tỉnh thành",
+      "specialty": "Chuyên khoa",
+      "clinic": "Phòng khám",
 
       "clinic-name": "Tên phòng khám",
       "clinic-address": "Địa chỉ phòng khám",
