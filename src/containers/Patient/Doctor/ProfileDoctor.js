@@ -8,6 +8,7 @@ import NumberFormat from "react-number-format";
 import _ from "lodash";
 import moment from "moment";
 import localization from "moment/locale/vi";
+import { Link } from "react-router-dom";
 
 class ProfileDoctor extends Component {
   constructor(props) {
@@ -77,7 +78,15 @@ class ProfileDoctor extends Component {
 
   render() {
     let { dataProfile } = this.state;
-    let { language, isShowDescriptionDoctor, dataScheduleTime } = this.props;
+    let {
+      language,
+      isShowDescriptionDoctor,
+      dataScheduleTime,
+      isShowLinkDetail,
+      isShowLocation,
+      isShowPrice,
+      doctorId,
+    } = this.props;
     let nameVi = "",
       nameEn = "";
     if (dataProfile && dataProfile.positionData) {
@@ -113,35 +122,58 @@ class ProfileDoctor extends Component {
             </div>
           </div>
         </div>
-        <div className="price">
-          <span>Giá khám:</span>
-          {dataProfile &&
-          dataProfile.Doctor_Infor &&
-          language === LANGUAGES.VI ? (
-            <NumberFormat
-              className="currency"
-              value={dataProfile.Doctor_Infor.priceTypeData.valueVi}
-              displayType={"text"}
-              thousandSeparator={true}
-              suffix={"VND"}
-            />
-          ) : (
-            ""
-          )}
-          {dataProfile &&
-          dataProfile.Doctor_Infor &&
-          language === LANGUAGES.EN ? (
-            <NumberFormat
-              className="currency"
-              value={dataProfile.Doctor_Infor.priceTypeData.valueEn}
-              displayType={"text"}
-              thousandSeparator={true}
-              suffix={"$"}
-            />
-          ) : (
-            ""
-          )}
-        </div>
+        {isShowLocation === true && (
+          <div className="province">
+            {dataProfile &&
+              dataProfile.Doctor_Infor &&
+              dataProfile.Doctor_Infor.provinceTypeData && (
+                <span>
+                  <i class="fas fa-check"></i>
+                  {language === LANGUAGES.VI
+                    ? dataProfile.Doctor_Infor.provinceTypeData.valueVi
+                    : dataProfile.Doctor_Infor.provinceTypeData.valueEn}
+                </span>
+              )}
+          </div>
+        )}
+        {isShowLinkDetail === true && (
+          <div className="view-detail-doctor">
+            <Link to={`/detail-doctor/${doctorId}`}>
+              <FormattedMessage id="homepage.more-info" />
+            </Link>
+          </div>
+        )}
+        {isShowPrice === true && (
+          <div className="price">
+            <span>Giá khám:</span>
+            {dataProfile &&
+            dataProfile.Doctor_Infor &&
+            language === LANGUAGES.VI ? (
+              <NumberFormat
+                className="currency"
+                value={dataProfile.Doctor_Infor.priceTypeData.valueVi}
+                displayType={"text"}
+                thousandSeparator={true}
+                suffix={"VND"}
+              />
+            ) : (
+              ""
+            )}
+            {dataProfile &&
+            dataProfile.Doctor_Infor &&
+            language === LANGUAGES.EN ? (
+              <NumberFormat
+                className="currency"
+                value={dataProfile.Doctor_Infor.priceTypeData.valueEn}
+                displayType={"text"}
+                thousandSeparator={true}
+                suffix={"$"}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+        )}
       </div>
     );
   }
