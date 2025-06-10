@@ -1,5 +1,5 @@
 .section-share {
-    &.section-specialty {
+    &.section-handbook {
         height: 380px;
         background: #f5f5f5;
         .section-container {
@@ -38,18 +38,18 @@
     }
 }
 
-.special-child {
+.section-customize {
     cursor: pointer;
     margin: 0 10px;
-    .bg-image.section-specialty { /* Ảnh của chuyên khoa */
+    .bg-image.section-handbook {
         height: 150px;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
         background-color: #eee;
-        border-radius: 5px
+        border-radius: 5px; 
     }
-    .specialty-name { /* Tên chuyên khoa */
+    div:last-child {
         padding: 10px 0;
         font-weight: 500;
         &:hover {

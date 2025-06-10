@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import * as actions from "../../../store/actions";
 import { LANGUAGES } from "../../../utils";
 import { withRouter } from "react-router";
+import "./OutStandingDoctor.scss";
 
 class OutStandingDoctor extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class OutStandingDoctor extends Component {
       });
     }
   }
-  componentDidMount() {
+  async componentDidMount() {
     // Fetch data or perform any necessary setup here
     this.props.loadTopDoctors();
   }
