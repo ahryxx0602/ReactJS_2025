@@ -130,26 +130,74 @@ class BookingModal extends Component {
     return "";
   };
 
+  // handleConfirmBooking = async () => {
+  //   let date = new Date(this.state.birthday).getTime();
+  //   let doctorName = this.buildDoctorName(this.props.dataScheduleTime);
+  //   let timeString = this.buildTimeBooking(this.props.dataScheduleTime);
+  //   let res = await postPatientBookAppointment({
+  //     fullName: this.state.fullName,
+  //     phoneNumber: this.state.phoneNumber,
+  //     email: this.state.email,
+  //     address: this.state.address,
+  //     reason: this.state.reason,
+  //     date: date,
+  //     selectedGender: this.state.selectedGender.value,
+  //     doctorId: this.state.doctorId,
+  //     timeType: this.state.timeType,
+  //     language: this.props.language,
+  //     timeString: timeString,
+  //     doctorName: doctorName,
+  //   });
+
+  //   if (res && res.errCode === 0) {
+  //     toast.success("Booking a new Appointment success!");
+  //     this.props.closeBookingClose();
+  //   } else {
+  //     toast.error("Booking a new Appointment fail!");
+  //   }
+  // };
   handleConfirmBooking = async () => {
+    // Basic validation
+    let {
+      fullName,
+      phoneNumber,
+      email,
+      address,
+      reason,
+      birthday,
+      selectedGender,
+    } = this.state;
+    if (
+      !fullName ||
+      !phoneNumber ||
+      !email ||
+      !address ||
+      !reason ||
+      !birthday ||
+      !selectedGender
+    ) {
+      toast.error("Vui lòng điền đầy đủ tất cả các trường thông tin!");
+      return; // Stop the function if validation fails
+    }
+
     let date = new Date(this.state.birthday).getTime();
     let doctorId = this.props.dataScheduleTime?.doctorId || "";
     let timeType = this.props.dataScheduleTime?.timeType || "";
     let language = this.props.language;
     let doctorName = this.buildDoctorName(this.props.dataScheduleTime);
     let timeString = this.buildTimeBooking(this.props.dataScheduleTime);
+
     let res = await postPatientBookAppointment({
-      fullName: this.state.fullName,
-      phoneNumber: this.state.phoneNumber,
-      email: this.state.email,
-      address: this.state.address,
-      reason: this.state.reason,
+      fullName: fullName,
+      phoneNumber: phoneNumber,
+      email: email,
+      address: address,
+      reason: reason,
       date: date,
-      selectedGenders: this.state.selectedGenders
-        ? this.state.selectedGenders.value
-        : "",
-      doctorId,
-      timeType,
-      language: this.props.language,
+      selectedGender: selectedGender.value,
+      doctorId: doctorId,
+      timeType: timeType,
+      language: language,
       timeString: timeString,
       doctorName: doctorName,
     });
@@ -168,7 +216,6 @@ class BookingModal extends Component {
       doctorId = dataScheduleTime.doctorId;
     }
 
-    console.log("Check: ", dataScheduleTime);
     return (
       <Modal
         isOpen={isOpenModal}
