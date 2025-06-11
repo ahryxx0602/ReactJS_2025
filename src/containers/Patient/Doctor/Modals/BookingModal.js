@@ -132,15 +132,17 @@ class BookingModal extends Component {
 
   // handleConfirmBooking = async () => {
   //   let date = new Date(this.state.birthday).getTime();
-  //   let doctorName = this.buildDoctorName(this.props.dataScheduleTime);
   //   let timeString = this.buildTimeBooking(this.props.dataScheduleTime);
+  //   let doctorName = this.buildDoctorName(this.props.dataScheduleTime);
+
   //   let res = await postPatientBookAppointment({
   //     fullName: this.state.fullName,
   //     phoneNumber: this.state.phoneNumber,
   //     email: this.state.email,
   //     address: this.state.address,
   //     reason: this.state.reason,
-  //     date: date,
+  //     date: this.props.dataScheduleTime,
+  //     birthday: date,
   //     selectedGender: this.state.selectedGender.value,
   //     doctorId: this.state.doctorId,
   //     timeType: this.state.timeType,
@@ -164,7 +166,7 @@ class BookingModal extends Component {
       email,
       address,
       reason,
-      birthday,
+      birthday, // This 'birthday' is from this.state
       selectedGender,
     } = this.state;
     if (
@@ -180,7 +182,8 @@ class BookingModal extends Component {
       return; // Stop the function if validation fails
     }
 
-    let date = new Date(this.state.birthday).getTime();
+    let birthdayTimestamp = new Date(this.state.birthday).getTime(); // Renamed to avoid redeclaration
+    let date = this.props.dataScheduleTime.date;
     let doctorId = this.props.dataScheduleTime?.doctorId || "";
     let timeType = this.props.dataScheduleTime?.timeType || "";
     let language = this.props.language;
@@ -194,6 +197,7 @@ class BookingModal extends Component {
       address: address,
       reason: reason,
       date: date,
+      birthday: birthdayTimestamp, // Use the renamed variable here
       selectedGender: selectedGender.value,
       doctorId: doctorId,
       timeType: timeType,
