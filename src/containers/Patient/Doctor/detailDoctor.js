@@ -6,6 +6,8 @@ import "./detailDoctor.scss";
 import { getDetailInfoDoctor } from "../../../services/userService";
 import DoctorSchedule from "./DoctorSchedule";
 import DoctorExtraInfo from "./DoctorExtraInfo";
+import LikeAndShare from "../SocialPlugin/LikeAndShare";
+import CommentFacebook from "../SocialPlugin/CommentFacebook";
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -44,6 +46,11 @@ class DetailDoctor extends Component {
       nameEn = `${DetailDoctor.positionData.valueEn}, ${DetailDoctor.lastName} ${DetailDoctor.firstName}`;
     }
 
+    let currentURL =
+      +process.env.REACT_APP_IS_LOCALHOST === 1
+        ? "https://www.facebook.com/qualigang"
+        : window.location.href;
+
     return (
       <>
         <HomeHeader isShowBanner={false} />
@@ -63,6 +70,9 @@ class DetailDoctor extends Component {
                 {DetailDoctor.Markdown && DetailDoctor.Markdown.description && (
                   <span>{DetailDoctor.Markdown.description}</span>
                 )}
+                <div className="fb-like">
+                  <LikeAndShare dataHref={currentURL} />
+                </div>
               </div>
             </div>
           </div>
@@ -96,8 +106,11 @@ class DetailDoctor extends Component {
           </div>
           <div className="comment-doctor">
             <h1>
-              <i className="fas fa-comment"></i> Đánh giá bác sĩ
+              <i className="fas fa-comment"></i> <span>Đánh giá bác sĩ</span>
             </h1>
+            <div className="fb-comment">
+              <CommentFacebook dataHref={currentURL} width={"100%"} />
+            </div>
           </div>
         </div>
       </>
